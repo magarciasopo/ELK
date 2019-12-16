@@ -14,6 +14,7 @@ PUT /cities
     }
   }
 }
+
 POST /_bulk
 {"index":{"_index":"cities","_type":"city"}}
 {"city":"Aalbeke", "location": {"lat": 50.783333, "lon": 3.216667}}
