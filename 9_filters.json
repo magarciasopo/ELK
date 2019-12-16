@@ -1,0 +1,41 @@
+POST /blog/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "term": {
+            "language": "en"
+          }
+        },
+        {
+          "range": {
+            "date": {
+              "gte": "2016-01-01",
+              "format": "YYYY-MM-dd"
+            }
+          }
+        }
+      ],
+      "must_not": [
+        {
+          "term": {
+            "category": "joomla"
+          }
+        }
+      ],
+      "should": [
+        {
+          "term": {
+            "category": "Hosting"
+          }
+        },
+        {
+          "term": {
+            "category": "evangelist"
+          }
+        }
+      ]
+    }
+  }
+}
